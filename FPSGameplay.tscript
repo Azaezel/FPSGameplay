@@ -119,12 +119,12 @@ function FPSGameplay::initClient(%this)
 function FPSGameplay::onCreateClientConnection(%this)
 {
    //client scripts
-   $KeybindPath = "./scripts/client/default.keybinds." @ $TorqueScriptFileExtension;
+   $KeybindPath = "data/FPSGameplay/scripts/client/default.keybinds." @ $TorqueScriptFileExtension;
    exec($KeybindPath);
    
    %prefPath = getPrefpath();
-   if(isFile(%prefPath @ "/keybinds." @ $TorqueScriptFileExtension))
-      exec(%prefPath @ "/keybinds." @ $TorqueScriptFileExtension);
+   if(isScriptFile(%prefPath @ "/keybinds"))
+      exec(%prefPath @ "/keybinds");
 }
 
 function FPSGameplay::onDestroyClientConnection(%this)
